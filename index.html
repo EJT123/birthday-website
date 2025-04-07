@@ -6,7 +6,7 @@
     <title>Happy 50th Birthday Shijo!</title>
     <link rel="stylesheet" href="index.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <!-- Three.js for WebGL effects -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <!-- GSAP for smooth animations -->
@@ -17,134 +17,122 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
-    <div id="particles-js"></div>
-    <div class="loading">
-        <div class="loading-text">Loading Memories...</div>
+    <div class="hero-section">
+        <div class="hero-content">
+            <div class="big-50">50</div>
+            <h1>Shijo's Birthday</h1>
+            <div class="scroll-indicator">
+                scroll down <span class="arrow">↓</span>
+            </div>
+        </div>
+        <div class="balloon-container"></div>
     </div>
 
-    <div id="balloon-container"></div>
-    <div id="confetti-container"></div>
-    
-    <div class="content">
-        <header>
-            <h1 class="title">Happy 50th Birthday</h1>
-            <h2 class="name">Shijo</h2>
-        </header>
-
-        <section class="quotes-section">
-            <h2 class="section-title">Words of Love</h2>
-            <div class="quote-container">
-                <p class="quote">"A father is someone you look up to no matter how tall you grow."</p>
+    <section class="invitation-section">
+        <div class="container">
+            <div class="invitation-text">
+                <h2 class="hashtag">#Celebration</h2>
+                <p class="invite-message">Join us in celebrating our father's 50th birthday - a milestone of love, wisdom, and cherished memories.</p>
             </div>
-        </section>
+            <div class="photo-highlight">
+                <img src="IMG_8081.jpeg" alt="Birthday Celebration" class="featured-image">
+            </div>
+            <div class="quote-box">
+                <p>"A father's love and guidance shapes the heart of a family."</p>
+            </div>
+        </div>
+    </section>
 
-        <section class="photo-gallery">
-            <h2 class="section-title">Family Moments</h2>
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Memories Through The Years</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="IMG_8081.jpeg" alt="Family Moment" class="gallery-img">
-                    <div class="gallery-caption">Traditional Elegance</div>
-                </div>
-                <div class="gallery-item">
                     <img src="IMG_8082.jpeg" alt="Family Photo" class="gallery-img">
-                    <div class="gallery-caption">Home Sweet Home</div>
+                    <div class="gallery-caption">Beautiful Moments</div>
                 </div>
                 <div class="gallery-item">
                     <img src="IMG_8084.jpeg" alt="Family Celebration" class="gallery-img">
-                    <div class="gallery-caption">Festive Celebrations</div>
+                    <div class="gallery-caption">Joyful Times</div>
                 </div>
                 <div class="gallery-item">
                     <img src="IMG_8090.jpeg" alt="Family Time" class="gallery-img">
-                    <div class="gallery-caption">Special Moments</div>
+                    <div class="gallery-caption">Special Days</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG_8085.jpeg" alt="Family moment" class="gallery-img">
+                    <div class="gallery-caption">Precious Memories</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG_8086.jpeg" alt="Family Gathering" class="gallery-img">
+                    <div class="gallery-caption">Family Love</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG_8087.jpeg" alt="Happy Times" class="gallery-img">
+                    <div class="gallery-caption">Happy Moments</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG_8088.jpeg" alt="Family Fun" class="gallery-img">
+                    <div class="gallery-caption">Fun Times</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG_8089.jpeg" alt="Special Occasion" class="gallery-img">
+                    <div class="gallery-caption">Special Occasions</div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="memory-wall">
-            <h2 class="section-title">Special Memories</h2>
-            <div class="polaroid-container">
-                <div class="polaroid">
-                    <img src="IMG_8085.jpeg" alt="Family moment">
-                    <p class="caption">Beautiful Memories</p>
-                </div>
-                <div class="polaroid">
-                    <img src="IMG_8087.jpeg" alt="Family time">
-                    <p class="caption">Happy Times</p>
-                </div>
-                <div class="polaroid">
-                    <img src="IMG_8095.jpeg" alt="Family gathering">
-                    <p class="caption">Joyful Days</p>
-                </div>
-                <div class="polaroid">
-                    <img src="IMG_8097.jpeg" alt="Family celebration">
-                    <p class="caption">Cherished Moments</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="wishes">
-            <h2 class="section-title">Birthday Wishes</h2>
-            <div class="wishes-container">
-                <div class="wish-card">
-                    <div class="wish-icon">🎉</div>
-                    <p class="wish-text">To the most amazing father, who fills our lives with joy and wisdom. Happy 50th Birthday!</p>
-                </div>
-                <div class="wish-card">
-                    <div class="wish-icon">💝</div>
-                    <p class="wish-text">Your love and guidance have shaped who we are. Thank you for being the best dad ever!</p>
-                </div>
-                <div class="wish-card">
-                    <div class="wish-icon">✨</div>
-                    <p class="wish-text">Here's to 50 wonderful years of making our world brighter with your presence!</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="sons-message">
-            <h2 class="section-title">A Message From Your Amazing Sons</h2>
+    <section class="message-section">
+        <div class="container">
+            <h2 class="section-title">A Message From Your Sons</h2>
             <div class="message-content">
-                <h3>Happy 50th Birthday, Dad!</h3>
                 <div class="message-text">
                     <p>From the very beginning, you've been someone we've looked up to—not just as a father, but as a role model, a guide, and the steady foundation of our family. Your strength, patience, and kindness have shaped us into who we are today.</p>
                     
-                    <p>We're so grateful for all the time, energy, and love you've poured into raising us. You've always been there—whether it was helping us through tough times, cheering us on during our wins, or just being someone we could talk to and count on. We know it wasn't always easy, but you always showed up with patience and love, and we can't thank you enough for that.</p>
+                    <p>We're so grateful for all the time, energy, and love you've poured into raising us. You've always been there—whether it was helping us through tough times, cheering us on during our wins, or just being someone we could talk to and count on.</p>
                     
-                    <p>Your example has taught us the value of hard work, integrity, and family. Whether it's the little moments or the big ones, your presence has meant everything to us. We admire the way you live your life—with purpose, humor, and heart—and we strive every day to make you proud.</p>
+                    <p>Your example has taught us the value of hard work, integrity, and family. We admire the way you live your life—with purpose, humor, and heart—and we strive every day to make you proud.</p>
                     
                     <p>We love you so much.</p>
                     
                     <div class="signature">
-                        <p>Sincerely,<br>Evan and Eric Thekkel</p>
+                        <p>With love,<br>Evan and Eric Thekkel</p>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <footer>
-            <p>Made with ❤️ for our amazing Dad</p>
-        </footer>
-    </div>
+        </div>
+    </section>
 
     <!-- Birthday Popup Modal -->
     <div id="birthdayPopup" class="popup">
         <div class="popup-content">
-            <div class="cake-container">
-                <div class="cake">
-                    <div class="cake-top"></div>
-                    <div class="cake-middle"></div>
-                    <div class="cake-bottom"></div>
-                    <div class="candle">
-                        <div class="flame"></div>
+            <div class="password-section" id="passwordSection">
+                <h2 class="popup-title">Welcome to Dad's Birthday Site!</h2>
+                <p class="password-hint">Hint: Best Dad EVER</p>
+                <div class="password-input-container">
+                    <input type="password" id="passwordInput" placeholder="Enter Password">
+                    <button id="submitPassword">Enter</button>
+                </div>
+                <p class="password-error" id="passwordError"></p>
+            </div>
+            <div class="celebration-section" id="celebrationSection" style="display: none;">
+                <div class="cake-container">
+                    <div class="cake">
+                        <div class="cake-top"></div>
+                        <div class="cake-middle"></div>
+                        <div class="cake-bottom"></div>
+                        <div class="candle">
+                            <div class="flame"></div>
+                        </div>
                     </div>
                 </div>
+                <h2 class="popup-title">Happy Birthday!</h2>
+                <button class="close-popup">Continue to Site ❤️</button>
             </div>
-            <h2 class="popup-title">Happy Birthday!</h2>
-            <button class="close-popup">Continue to Site ❤️</button>
         </div>
     </div>
 
-    <!-- Vanilla-tilt.js for 3D card effects -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
     <script src="index.js"></script>
 </body>
 </html>

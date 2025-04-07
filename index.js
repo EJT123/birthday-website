@@ -379,26 +379,156 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Show birthday popup when page loads
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize popup elements
     const popup = document.getElementById('birthdayPopup');
+    const passwordSection = document.getElementById('passwordSection');
+    const celebrationSection = document.getElementById('celebrationSection');
+    const passwordInput = document.getElementById('passwordInput');
+    const submitButton = document.getElementById('submitPassword');
+    const passwordError = document.getElementById('passwordError');
     const closeButton = document.querySelector('.close-popup');
 
     // Show popup with animation
     setTimeout(() => {
         popup.classList.add('show');
+    }, 1000);
+
+    // Password validation
+    const correctPassword = "Best Dad EVER";
+    
+    submitButton.addEventListener('click', checkPassword);
+    passwordInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            checkPassword();
+        }
+    });
+
+    function checkPassword() {
+        if (passwordInput.value === correctPassword) {
+            // Success animation
+            passwordSection.style.animation = 'fadeOut 0.5s forwards';
+            setTimeout(() => {
+                passwordSection.style.display = 'none';
+                celebrationSection.style.display = 'block';
+                celebrationSection.style.animation = 'fadeIn 0.5s forwards';
+                
+                // Trigger celebration effects
+                triggerCelebration();
+            }, 500);
+        } else {
+            // Error animation
+            passwordError.textContent = "Incorrect password. Try again!";
+            passwordInput.style.animation = 'shake 0.5s';
+            setTimeout(() => {
+                passwordInput.style.animation = '';
+            }, 500);
+        }
+    }
+
+    function triggerCelebration() {
         // Trigger confetti
         confetti({
             particleCount: 100,
             spread: 70,
             origin: { y: 0.6 }
         });
-    }, 1000);
+
+        // Add floating balloons
+        createBalloons();
+    }
 
     // Close popup when button is clicked
     closeButton.addEventListener('click', () => {
         popup.classList.remove('show');
     });
 
-    // Add cake animation
-    const flame = document.querySelector('.flame');
-    flame.style.animation = 'flicker 1s infinite';
+    // Smooth scroll for all links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Animate elements on scroll
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.gallery-item, .message-content, .photo-highlight');
+        
+        elements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementBottom = element.getBoundingClientRect().bottom;
+            
+            if (elementTop < window.innerHeight && elementBottom > 0) {
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+            }
+        });
+    };
+
+    // Initial animation setup
+    document.querySelectorAll('.gallery-item, .message-content, .photo-highlight').forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'all 0.6s ease-out';
+    });
+
+    // Listen for scroll events
+    window.addEventListener('scroll', animateOnScroll);
+    animateOnScroll(); // Initial check
+
+    // Create floating balloons in the hero section
+    const createBalloons = () => {
+        const colors = ['#FFD700', '#FF6B6B', '#4ECDC4', '#45B7D1', '#96E6A1'];
+        const balloonContainer = document.querySelector('.balloon-container');
+        
+        for (let i = 0; i < 10; i++) {
+            const balloon = document.createElement('div');
+            balloon.className = 'balloon';
+            balloon.style.left = `${Math.random() * 100}%`;
+            balloon.style.animationDelay = `${Math.random() * 3}s`;
+            balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            balloonContainer.appendChild(balloon);
+        }
+    };
+
+    createBalloons();
+
+    // Parallax effect for hero section
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const heroContent = document.querySelector('.hero-content');
+        heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
+        heroContent.style.opacity = 1 - (scrolled * 0.003);
+    });
+
+    // Add hover effect to gallery images
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px)';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
 });
+
+// Add these keyframe animations to your CSS
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-10px); }
+        75% { transform: translateX(10px); }
+    }
+    @keyframes fadeOut {
+        to { opacity: 0; }
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+`;
+document.head.appendChild(style);
