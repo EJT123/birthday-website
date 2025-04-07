@@ -376,3 +376,29 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+
+// Show birthday popup when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    const popup = document.getElementById('birthdayPopup');
+    const closeButton = document.querySelector('.close-popup');
+
+    // Show popup with animation
+    setTimeout(() => {
+        popup.classList.add('show');
+        // Trigger confetti
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
+    }, 1000);
+
+    // Close popup when button is clicked
+    closeButton.addEventListener('click', () => {
+        popup.classList.remove('show');
+    });
+
+    // Add cake animation
+    const flame = document.querySelector('.flame');
+    flame.style.animation = 'flicker 1s infinite';
+});
